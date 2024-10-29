@@ -18,11 +18,11 @@ execSync(`zip -r "${zipFile}" generated_images/`);
 
 console.log(`Zipped files into: ${zipFile}`);
 
-// Check if images exist before attempting to delete
+// Check if the images folder exists before attempting to delete
 const imagesPath = 'generated_images/';
 if (fs.existsSync(imagesPath)) {
-    // Delete the images after zipping
-    fs.rmSync(imagesPath + '*', { recursive: true, force: true });
+    // Delete all images in the folder
+    fs.rmSync(imagesPath, { recursive: true, force: true });
     console.log(`Deleted all images in: ${imagesPath}`);
 } else {
     console.log(`No images found in: ${imagesPath}`);
